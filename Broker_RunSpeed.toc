@@ -5,6 +5,7 @@
 ## Version: @project-version@
 
 ## X-Curse-Project-ID: 24699
+## X-Wago-ID: aNDmZr6o
 
 # From libraries
 Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
