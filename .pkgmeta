@@ -1,0 +1,14 @@
+# Files and directories beginning with a dot (such as .git) are automatically ignored, as is the pgkmeta file itself.
+ignore:
+  - README.md
+  - *.rockspec
+  - bench.lua
+  - spec
+  - LibStub/tests
+
+externals:
+    #LibStub
+    Libs/LibStub: https://repos.wowace.com/wow/libstub/trunk
+
+    #LibDataBroker
+    Libs/LibDataBroker-1.1: https://repos.wowace.com/wow/libdatabroker-1-1
