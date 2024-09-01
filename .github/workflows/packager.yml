@@ -8,6 +8,7 @@ name: Package release versions
 on:
   push:
     tags:
+      - '**'
       - '!*-alpha*'
       - '!*-beta*'
 
