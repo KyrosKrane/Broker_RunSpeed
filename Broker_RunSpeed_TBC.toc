@@ -1,0 +1,10 @@
+## Interface: 20504
+## Title: Broker_RunSpeed
+## Notes: Display Current % of Run Speed
+## Author: Gaddor
+## Version: 1.1
+## OptionalDeps: LibDataBroker-1.1
+
+libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
+
+Broker_RunSpeed.lua
