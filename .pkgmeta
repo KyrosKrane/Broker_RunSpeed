@@ -1,10 +1,11 @@
+package-as: Broker_RunSpeed
+enable-nolib-creation: no
+
 # Files and directories beginning with a dot (such as .git) are automatically ignored, as is the pgkmeta file itself.
 ignore:
-  - README.md
-  - *.rockspec
-  - bench.lua
-  - spec
-  - LibStub/tests
+    - README.md
+    - Libs/LibStub/tests
+    - Libs/LibStub/LibStub.toc
 
 externals:
     #LibStub
