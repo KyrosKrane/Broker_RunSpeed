@@ -9,6 +9,7 @@
 ## X-WoWI-ID: 17094
 
 # From libraries
+Libs\LibStub\LibStub.lua
 Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
 
 # Included in this addon
