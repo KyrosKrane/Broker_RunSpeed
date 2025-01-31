@@ -1,4 +1,4 @@
-## Interface: 11505, 110007, 40401
+## Interface: 11505, 11506, 110007, 40401
 ## Title: Broker_RunSpeed
 ## Notes: Display Current % of Run Speed
 ## Author: Gaddor, maintained by KyrosKrane
