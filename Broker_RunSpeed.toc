@@ -1,3 +1,6 @@
+# File revision: @file-abbreviated-hash@
+# File last updated: @file-date-iso@
+
 ## Interface: 11506, 110100, 40402
 ## Title: Broker_RunSpeed
 ## Notes: Display Current % of Run Speed
