@@ -1,4 +1,4 @@
-## Interface: 11506, 110007, 40402
+## Interface: 11506, 110100, 40402
 ## Title: Broker_RunSpeed
 ## Notes: Display Current % of Run Speed
 ## Author: Gaddor, maintained by KyrosKrane
@@ -7,6 +7,21 @@
 ## X-Curse-Project-ID: 24699
 ## X-Wago-ID: aNDmZr6o
 ## X-WoWI-ID: 25210
+
+# @TODO: check for updated translations next time I update this.
+
+## Category: Data Broker
+## Category-enUS: Data Broker
+## Category-deDE: Datenbroker
+## Category-esES: Intermediario de Datos
+## Category-esMX: Intermediario de Datos
+## Category-frFR: Courtier de Données
+# Category-itIT:
+# Category-koKR:
+## Category-ptBR: Corretor de Dados
+## Category-ruRU: Посредник данных
+## Category-zhCN: 数据管理
+## Category-zhTW: 資料管理
 
 # From libraries
 Libs\LibStub\LibStub.lua
