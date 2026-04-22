@@ -8,14 +8,44 @@ local brsRunSpeed = _G.LibStub("LibDataBroker-1.1"):NewDataObject("Broker_RunSpe
 
 local isGliding, canGlide, forwardSpeed, UnitSpeed
 
+-- general principle is DisplaySpeed = UnitSpeed / BASE_MOVEMENT_SPEED * 100
+-- reversed, that would be UnitSpeed = DisplaySpeed / 100 * BASE_MOVEMENT_SPEED
+
+local OldWorldSpeedCurve = C_CurveUtil.CreateCurve()
+OldWorldSpeedCurve:SetType(Enum.LuaCurveType.Linear);
+OldWorldSpeedCurve:AddPoint(0.0, 0)
+OldWorldSpeedCurve:AddPoint(105.0, 1500)
+-- I have no idea why this scale works, but it does!
+-- Thanks to aa-chrismcfadyen on Github for this curve
+
+
 local function SpeedIsSecret()
 	brsRunSpeed.value = string.format("n/a (In combat)")
 	brsRunSpeed.text = string.format("n/a (In combat)")
 end
 
+
+
+local frame = CreateFrame("Frame", "MyStatefulFrame", UIParent, "SecureHandlerStateTemplate")
+RegisterStateDriver(frame, "CombatState", "[combat] combat; nocombat")
+frame:SetAttribute("_onstate-CombatState", [[ -- arguments: self, stateid, newstate
+    if newstate == "combat" then
+        print("In combat")
+    elseif newstate == "nocombat" then
+        print("not in combat")
+    end
+]])
+
+
+
 local function UpdateOldWorld()
-	brsRunSpeed.value = string.format("%.0f", UnitSpeed / BASE_MOVEMENT_SPEED * 100) .. "%"
-	brsRunSpeed.text = string.format("%.0f", UnitSpeed / BASE_MOVEMENT_SPEED * 100) .. "%"
+	--print("At run time, secret is ", OldWorldSpeedCurve:HasSecretValues())
+	--print(OldWorldSpeedCurve:Evaluate(GetUnitSpeed("player")))
+	--print("post run, secret is ", OldWorldSpeedCurve:HasSecretValues())
+	brsRunSpeed.value = OldWorldSpeedCurve:Evaluate(GetUnitSpeed("player"))
+	brsRunSpeed.text = OldWorldSpeedCurve:Evaluate(GetUnitSpeed("player"))
+	-- brsRunSpeed.value = string.format("%.0f%%", OldWorldSpeedCurve:Evaluate(GetUnitSpeed("player")))
+	-- brsRunSpeed.text = string.format("%.0f%%", OldWorldSpeedCurve:Evaluate(GetUnitSpeed("player")))
 end
 
 local function UpdateDragonriding()
@@ -28,21 +58,9 @@ end
 local function UpdateRunSpeed(frame, elapsed)
 	UnitSpeed = GetUnitSpeed("player")
 
-	-- Update 2026-04-22: Blizzard has decided that movement speed is now secret as of 12.0.5. So check for this.
-	if issecretvalue and issecretvalue(UnitSpeed) then
-		SpeedIsSecret()
-		return
-	end
-
 	if C_PlayerInfo and C_PlayerInfo.GetGlidingInfo then
-		-- We're in retail. Check if we're dragonriding, and if update speed appropriately.
+		-- We're in retail. Check if we're dragonriding, and if so update speed appropriately.
 		isGliding, canGlide, forwardSpeed = C_PlayerInfo.GetGlidingInfo()
-
-		-- I can't really test these values easily, so I'm adding an additional sanity check just in case.
-		if issecretvalue(isGliding) or issecretvalue(forwardSpeed) then
-			SpeedIsSecret()
-			return
-		end
 
 		if isGliding then
 			UpdateDragonriding()
