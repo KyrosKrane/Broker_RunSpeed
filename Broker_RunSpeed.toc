@@ -1,11 +1,11 @@
-# File revision: @file-abbreviated-hash@
-# File last updated: @file-date-iso@
-
 ## Interface: @toc-version-classic@, @toc-version-mists@, @toc-version-retail@
 ## Title: Broker_RunSpeed
 ## Notes: Display Current % of Run Speed
 ## Author: Gaddor, maintained by KyrosKrane
 ## Version: @project-version@
+
+# File revision: @file-abbreviated-hash@
+# File last updated: @file-date-iso@
 
 ## X-Curse-Project-ID: 24699
 ## X-Wago-ID: aNDmZr6o
