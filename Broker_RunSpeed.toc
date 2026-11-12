@@ -1,4 +1,4 @@
-## Interface: @toc-version-classic@, @toc-version-mists@, @toc-version-retail@
+## Interface: @toc-version-classic@, @toc-version-forever@, @toc-version-mists@, @toc-version-retail@
 ## Title: Broker_RunSpeed
 ## Notes: Display Current % of Run Speed
 ## Author: Gaddor, maintained by KyrosKrane
